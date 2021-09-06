@@ -11,6 +11,7 @@ namespace HotelListing.Data
 
         }
 
+        // Seed data to database
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Country>().HasData(

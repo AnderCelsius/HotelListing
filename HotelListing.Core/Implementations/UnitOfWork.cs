@@ -20,14 +20,14 @@ namespace HotelListing.Core.Implementations
         }
 
         /// <summary>
-        /// Returns a new instance of GenericRepositoy<Country> if _countries null
+        /// Returns a new instance of GenericRepositoy<Country> if _countries is null
         /// </summary>
-        public IGenericRepository<Country> CountrieRepository => _countries ??= new GenericRepository<Country>(_context);
+        public IGenericRepository<Country> Countries => _countries ??= new GenericRepository<Country>(_context);
 
         /// <summary>
-        /// Returns a new instance of GenericRepositoy<Hotels> if _hotels null
+        /// Returns a new instance of GenericRepositoy<Hotels> if _hotels is null
         /// </summary>
-        public IGenericRepository<Hotel> HotelRepository => _hotels ??= new GenericRepository<Hotel>(_context);
+        public IGenericRepository<Hotel> Hotels => _hotels ??= new GenericRepository<Hotel>(_context);
 
         public void Dispose()
         {

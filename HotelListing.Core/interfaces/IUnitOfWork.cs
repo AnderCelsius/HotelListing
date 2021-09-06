@@ -9,8 +9,8 @@ namespace HotelListing.Core.interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IGenericRepository<Country> CountrieRepository {  get; }
-        IGenericRepository<Hotel> HotelRepository {  get; }
+        IGenericRepository<Country> Countries {  get; }
+        IGenericRepository<Hotel> Hotels {  get; }
 
         Task Save();
     }
