@@ -1,4 +1,5 @@
 using HotelListing.Data;
+using HotelListing.Shared.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace HotelListing
 {
@@ -40,6 +42,8 @@ namespace HotelListing
                            .AllowAnyMethod()
                            .AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(MapperInitializer));
 
             services.AddControllers();
 
