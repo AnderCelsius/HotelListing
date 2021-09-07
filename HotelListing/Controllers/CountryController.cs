@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HotelListing.Core.interfaces;
-using HotelListing.Shared;
+using HotelListing.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

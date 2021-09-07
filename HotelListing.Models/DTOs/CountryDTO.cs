@@ -1,9 +1,9 @@
-﻿using HotelListing.Shared.DTOs;
+﻿using HotelListing.Models.DTOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace HotelListing.Shared
+namespace HotelListing.Models.DTOs
 {
     public class CountryDTO : CreateCountryDTO
     {

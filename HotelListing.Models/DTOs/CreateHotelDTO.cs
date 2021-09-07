@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelListing.Shared.DTOs
+namespace HotelListing.Models.DTOs
 {
     public class CreateHotelDTO
     {

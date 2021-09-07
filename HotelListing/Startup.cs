@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using HotelListing.Core.interfaces;
 using HotelListing.Core.Implementations;
+using HotelListing.Core.Services;
 
 namespace HotelListing
 {
@@ -34,7 +35,12 @@ namespace HotelListing
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnString"))
-            ); 
+            );
+
+            // Configure Identity
+            services.AddAuthentication();
+            services.ConfigureIdentity();
+            services.ConfigureJWT(Configuration);
 
             //This policy will determine who can use the API
             services.AddCors(o =>
@@ -47,10 +53,9 @@ namespace HotelListing
 
             services.AddAutoMapper(typeof(MapperInitializer));
 
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddControllers().AddNewtonsoftJson(op =>
-                op.SerializerSettings.ReferenceLoopHandling =
-                Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            // Register Core Services
+            services.AddScoped<IAuthManager, AuthManager>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();           
 
             services.AddControllers();
 
@@ -58,6 +63,10 @@ namespace HotelListing
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelListing", Version = "v1" });
             });
+
+            services.AddControllers().AddNewtonsoftJson(op =>
+               op.SerializerSettings.ReferenceLoopHandling =
+               Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +85,9 @@ namespace HotelListing
 
             app.UseCors("AllowAll");
 
-            app.UseRouting();  
+            app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
