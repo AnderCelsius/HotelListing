@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HotelListing.Models.DTOs
 {
-    public class HotelDTO : CreateHotelDTO
+    public class HotelDTO : AddHotelDTO
     {
         public int Id { get; set; }
         public CountryDTO Country {  get; set; }

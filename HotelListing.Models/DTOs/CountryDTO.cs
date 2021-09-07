@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HotelListing.Models.DTOs
 {
-    public class CountryDTO : CreateCountryDTO
+    public class CountryDTO : AddCountryDTO
     {
         public int Id { get; set; }
         public IList<HotelDTO> Hotels {  get; set; }

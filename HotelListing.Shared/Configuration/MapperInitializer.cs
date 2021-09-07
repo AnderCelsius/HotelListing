@@ -14,9 +14,9 @@ namespace HotelListing.Shared.Configuration
         public MapperInitializer()
         {
             CreateMap<Country, CountryDTO>().ReverseMap();
-            CreateMap<Country, CreateCountryDTO>().ReverseMap();
+            CreateMap<Country, AddCountryDTO>().ReverseMap();
             CreateMap<Hotel, HotelDTO>().ReverseMap();
-            CreateMap<Hotel, CreateHotelDTO>().ReverseMap();
+            CreateMap<Hotel, AddHotelDTO>().ReverseMap();
             CreateMap<ApiUser, UserDTO>().ReverseMap();
         }
     }
